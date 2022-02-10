@@ -3,8 +3,12 @@ import mongoose from 'mongoose'
 import router from "./router.js";
 import fileUpload from 'express-fileupload';
 
+const db_user = process.env.NODE_ENV_DB_USER;
+const db_pass = process.env.NODE_ENV_DB_PASS;
+const db_name = process.env.NODE_ENV_DB_NAME;
 const PORT = 5000;
-const DB_URL = `mongodb+srv://baginz:31415926@cluster0.6mpef.mongodb.net/node_mongo?retryWrites=true&w=majority`
+
+const DB_URL = `mongodb+srv://${db_user}:${db_pass}@cluster0.6mpef.mongodb.net/${db_name}?retryWrites=true&w=majority`
 
 const app = express()
 

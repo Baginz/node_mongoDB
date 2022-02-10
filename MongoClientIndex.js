@@ -1,6 +1,10 @@
 const {MongoClient} = require('mongodb')
 
-const client = new MongoClient('mongodb+srv://<name>:<pass>@cluster0.6mpef.mongodb.net/<db_name>?retryWrites=true&w=majority')
+const db_user = process.env.NODE_ENV_DB_USER;
+const db_pass = process.env.NODE_ENV_DB_PASS;
+const db_name = process.env.NODE_ENV_DB_NAME;
+
+const client = new MongoClient(`mongodb+srv://${db_user}:${db_pass}@cluster0.6mpef.mongodb.net/${db_name}?retryWrites=true&w=majority`)
 
 const start = async () => {
     try {
